@@ -1,12 +1,18 @@
+import 'package:hive/hive.dart';
+part 'model.g.dart';
+
+@HiveType(typeId: 0)
 class ModeTimes {
   ModeTimes({
     this.timings,
     this.date,
     this.meta,
   });
-
+  @HiveField(0)
   Timings? timings;
+  @HiveField(1)
   Date? date;
+  @HiveField(2)
   Meta? meta;
 
   factory ModeTimes.fromJson(Map<String, dynamic> json) => ModeTimes(
@@ -16,6 +22,7 @@ class ModeTimes {
       );
 }
 
+@HiveType(typeId: 1)
 class Date {
   Date({
     this.readable,
@@ -23,10 +30,13 @@ class Date {
     this.gregorian,
     this.hijri,
   });
-
+  @HiveField(0)
   String? readable;
+  @HiveField(1)
   String? timestamp;
+  @HiveField(2)
   Gregorian? gregorian;
+  @HiveField(3)
   Hijri? hijri;
 
   factory Date.fromJson(Map<String, dynamic> json) => Date(
@@ -37,6 +47,7 @@ class Date {
       );
 }
 
+@HiveType(typeId: 2)
 class Gregorian {
   Gregorian({
     this.date,
@@ -48,12 +59,19 @@ class Gregorian {
     this.designation,
   });
 
+  @HiveField(0)
   String? date;
+  @HiveField(1)
   String? format;
+  @HiveField(2)
   String? day;
+  @HiveField(3)
   GregorianWeekday? weekday;
+  @HiveField(4)
   GregorianMonth? month;
+  @HiveField(5)
   String? year;
+  @HiveField(6)
   Designation? designation;
 
   factory Gregorian.fromJson(Map<String, dynamic> json) => Gregorian(
@@ -67,13 +85,15 @@ class Gregorian {
       );
 }
 
+@HiveType(typeId: 3)
 class Designation {
   Designation({
     this.abbreviated,
     this.expanded,
   });
-
+  @HiveField(0)
   String? abbreviated;
+  @HiveField(1)
   String? expanded;
 
   factory Designation.fromJson(Map<String, dynamic> json) => Designation(
@@ -82,13 +102,15 @@ class Designation {
       );
 }
 
+@HiveType(typeId: 4)
 class GregorianMonth {
   GregorianMonth({
     this.number,
     this.en,
   });
-
+  @HiveField(0)
   int? number;
+  @HiveField(1)
   String? en;
 
   factory GregorianMonth.fromJson(Map<String, dynamic> json) => GregorianMonth(
@@ -97,11 +119,13 @@ class GregorianMonth {
       );
 }
 
+@HiveType(typeId: 5)
 class GregorianWeekday {
   GregorianWeekday({
     this.en,
   });
 
+  @HiveField(0)
   String? en;
 
   factory GregorianWeekday.fromJson(Map<String, dynamic> json) =>
@@ -110,6 +134,7 @@ class GregorianWeekday {
       );
 }
 
+@HiveType(typeId: 6)
 class Hijri {
   Hijri({
     this.date,
@@ -122,13 +147,21 @@ class Hijri {
     this.holidays,
   });
 
+  @HiveField(0)
   String? date;
+  @HiveField(1)
   String? format;
+  @HiveField(2)
   String? day;
+  @HiveField(3)
   HijriWeekday? weekday;
+  @HiveField(4)
   HijriMonth? month;
+  @HiveField(5)
   String? year;
+  @HiveField(6)
   Designation? designation;
+  @HiveField(7)
   List<dynamic>? holidays;
 
   factory Hijri.fromJson(Map<String, dynamic> json) => Hijri(
@@ -143,6 +176,7 @@ class Hijri {
       );
 }
 
+@HiveType(typeId: 7)
 class HijriMonth {
   HijriMonth({
     this.number,
@@ -150,8 +184,11 @@ class HijriMonth {
     this.ar,
   });
 
+  @HiveField(0)
   int? number;
+  @HiveField(1)
   String? en;
+  @HiveField(2)
   String? ar;
 
   factory HijriMonth.fromJson(Map<String, dynamic> json) => HijriMonth(
@@ -161,13 +198,16 @@ class HijriMonth {
       );
 }
 
+@HiveType(typeId: 8)
 class HijriWeekday {
   HijriWeekday({
     this.en,
     this.ar,
   });
 
+  @HiveField(0)
   String? en;
+  @HiveField(1)
   String? ar;
 
   factory HijriWeekday.fromJson(Map<String, dynamic> json) => HijriWeekday(
@@ -176,6 +216,7 @@ class HijriWeekday {
       );
 }
 
+@HiveType(typeId: 9)
 class Meta {
   Meta({
     this.latitude,
@@ -188,13 +229,21 @@ class Meta {
     this.offset,
   });
 
+  @HiveField(0)
   double? latitude;
+  @HiveField(1)
   double? longitude;
+  @HiveField(2)
   String? timezone;
+  @HiveField(3)
   Method? method;
+  @HiveField(4)
   String? latitudeAdjustmentMethod;
+  @HiveField(5)
   String? midnightMode;
+  @HiveField(6)
   String? school;
+  @HiveField(7)
   Map<String, int>? offset;
 
   factory Meta.fromJson(Map<String, dynamic> json) => Meta(
@@ -210,6 +259,7 @@ class Meta {
       );
 }
 
+@HiveType(typeId: 10)
 class Method {
   Method({
     this.id,
@@ -218,9 +268,13 @@ class Method {
     this.location,
   });
 
+  @HiveField(0)
   int? id;
+  @HiveField(1)
   String? name;
+  @HiveField(2)
   Params? params;
+  @HiveField(3)
   Location? location;
 
   factory Method.fromJson(Map<String, dynamic> json) => Method(
@@ -231,13 +285,16 @@ class Method {
       );
 }
 
+@HiveType(typeId: 11)
 class Location {
   Location({
     this.latitude,
     this.longitude,
   });
 
+  @HiveField(0)
   double? latitude;
+  @HiveField(1)
   double? longitude;
 
   factory Location.fromJson(Map<String, dynamic> json) => Location(
@@ -246,13 +303,16 @@ class Location {
       );
 }
 
+@HiveType(typeId: 12)
 class Params {
   Params({
     this.fajr,
     this.isha,
   });
 
+  @HiveField(0)
   int? fajr;
+  @HiveField(1)
   int? isha;
 
   factory Params.fromJson(Map<String, dynamic> json) => Params(
@@ -261,6 +321,7 @@ class Params {
       );
 }
 
+@HiveType(typeId: 13)
 class Timings {
   Timings({
     this.fajr,
@@ -274,14 +335,23 @@ class Timings {
     this.midnight,
   });
 
+  @HiveField(0)
   String? fajr;
+  @HiveField(1)
   String? sunrise;
+  @HiveField(2)
   String? dhuhr;
+  @HiveField(3)
   String? asr;
+  @HiveField(4)
   String? sunset;
+  @HiveField(5)
   String? maghrib;
+  @HiveField(6)
   String? isha;
+  @HiveField(7)
   String? imsak;
+  @HiveField(8)
   String? midnight;
 
   factory Timings.fromJson(Map<String, dynamic> json) => Timings(

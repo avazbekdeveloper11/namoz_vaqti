@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:taqvim/router/router.dart';
+import 'package:taqvim/service/service.dart';
 
-void main() {
+void main() async {
+  ServiseTime.registerAdapters();
+  await Hive.initFlutter();
   runApp(const MyApp());
 }
 
